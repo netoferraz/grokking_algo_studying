@@ -16,6 +16,26 @@ def binary_search(array: List[int], item:int):
             lower = middle + 1
     return None
 
+def binary_search_number_of_steps(array: List[int], item:int):
+    """If item exists in array, returns the index and number of steps otherwise return None and number of steps"""
+    lower = 0
+    high = len(array) -1
+    number_of_steps = 0
+    while lower <= high:
+        number_of_steps += 1
+        middle = (lower+high)//2
+        guess = array[middle]
+        if guess == item:
+            return middle, number_of_steps
+        elif guess > item:
+            #updates the highest position
+            high = middle - 1
+        else: # middle < item
+            #updates the lowest position
+            lower = middle + 1
+    return None, number_of_steps
+
+
 if __name__ == "__main__":
-    abc = binary_search(list(range(1,101)), 7)
-    print(abc)
+    item_index, nos = binary_search_number_of_steps(list(range(1,257)), 256)
+    print(item_index, nos)
