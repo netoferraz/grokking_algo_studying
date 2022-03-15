@@ -13,15 +13,20 @@ def test_binary_search_return_None():
 def test_max_steps_for_100_items():
     input_list = list(range(1, 101))
     _, number_of_steps =  binary_search_number_of_steps(input_list, 100)
-    assert number_of_steps == 7
+    assert number_of_steps == 6
 
 
 def test_max_steps_for_128_items():
     input_list = list(range(1, 129))
     _, number_of_steps =  binary_search_number_of_steps(input_list, 128)
-    assert number_of_steps == 8
+    assert number_of_steps == 7
 
 def test_max_steps_for_256_items():
     input_list = list(range(1, 257))
     _, number_of_steps =  binary_search_number_of_steps(input_list, 256)
-    assert number_of_steps == 9
+    assert number_of_steps == 8
+
+def test_max_steps_for_100000_items():
+    input_list = list(range(1, 100001))
+    _, number_of_steps =  binary_search_number_of_steps(input_list, 100000)
+    assert number_of_steps == 16
