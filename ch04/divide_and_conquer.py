@@ -28,3 +28,13 @@ def recursive_max_value(array):
     else:
         max_value = recursive_max_value(array[1:])
         return max_value if max_value > array[0] else array[0]
+
+def quick_sort(array):
+    """quicksort implementation"""
+    if len(array) < 2:
+        return array
+    else:
+        pivot = array[0]
+        less_than_pivot = [value for value in array[1:] if value < pivot]
+        greater_than_pivot = [value for value in array[1:] if value >= pivot]
+        return [*quick_sort(less_than_pivot), pivot, *quick_sort(greater_than_pivot)]
